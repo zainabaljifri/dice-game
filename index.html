@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v6.1.2/js/all.js"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+  <title> 🎲 Dice Challenge</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="heading">
+      <i id="dice" class=" fa-solid fa-dice"></i>
+      Roll the Dice
+
+    </div>
+    <div class="container-fluid">
+      <div class="players">
+        <!-- <p>Player 1</p> -->
+        <h2>Player 1</h2>
+        <i id="player1" class="image fa-solid fa-dice-one"></i>
+      </div>
+
+      <div class="players">
+         <h2>Player 2</h2>
+        <i id="player2" class="image fa-solid fa-dice-one"></i> <br>
+      </div>
+
+      <h3 ><em>Lets start...</em></h3>
+
+    </div>
+    <div class="play">
+      <button id="play-stop" type="button" onclick="play()" class="replay-btn btn btn-outline-light btn-lg btn-block col-12">🎲 Play</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function play() {
+      // document.getElementById("dice").style.visibility = "hidden";
+      var player1 = Math.floor(1 + Math.random() * 6);
+      var player2 = Math.floor(1 + Math.random() * 6);
+      // alert(player1+", "+player2);
+      var nums = ["one", "two", "three", "four", "five", "six"]
+      document.querySelector("#player1").classList.toggle("playerSpin");
+      document.querySelector("#player2").classList.toggle("playerSpin");
+      document.querySelector("#player1").classList.toggle("fa-dice-" + nums[player1 - 1]);
+      document.querySelector("#player2").classList.toggle("fa-dice-" + nums[player2 - 1]);
+      var btn = document.querySelector("#play-stop").innerText;
+      if(btn==="Stop"){
+        document.querySelector("#play-stop").innerText="Play";
+        winner(player1,player2);
+      }
+      else{
+        document.querySelector("#play-stop").innerText="Stop";
+      }
+
+    }
+
+    function winner(player1, player2) {
+      if(player1>player2){
+        document.querySelector("h3").innerText="Player 1 won 🎉";
+            }else if(player2>player1){
+        document.querySelector("h3").innerText="Player 2 won 🎉";
+      } else{
+        document.querySelector("h3").innerText="Its a tie!";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

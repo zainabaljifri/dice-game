@@ -1,0 +1,97 @@
+/* HTML TAGS */
+body {
+  margin: auto;
+  background: linear-gradient(-45deg, #ee7752, #eeaeca, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+  display: table;
+
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.container{
+  display: table-cell;
+text-align: center;
+vertical-align: middle;
+}
+
+/* CSS CLASSES */
+#dice{
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+}
+.playerSpin{
+  animation-name: spin;
+  animation-duration: 10ms ;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+.heading {
+  font-size: 7vw;
+  font-weight: 700;
+  margin: 3% 0%;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+.container-fluid{
+  padding: 1% 2%;
+}
+h2{
+  font-weight: 600;
+  font-family:  'Poppins', sans-serif;
+  font-size: 3vw;
+}
+
+h3{
+  font-family:  'Poppins', sans-serif;
+  font-size: 3vw;
+  color: #FAF9F6;
+}
+p{
+  display: inline;
+}
+.players{
+  display: inline-block;
+}
+/* .fa-dice{
+
+} */
+.image{
+  height: 15vw;
+  width: 15vw;
+  /* margin: 0% 1% 0%; */
+}
+.play{
+  margin: 0% 20%;
+  padding: 0% 5%;
+}
+
+.replay-btn{
+  padding: 10px;
+    /* font-size: 2vw; */
+    border-radius: 50px;
+}
